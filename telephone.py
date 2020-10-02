@@ -70,7 +70,7 @@ def fun0():
 
 
 def submit():
-    db=m.connect(user='root',password="Dhrupesh123#",database="collage")
+    db=m.connect(user='root',password="Dhrupesh123#@",database="collage")
     cursor=db.cursor()
     sql="insert into contect values('{}',{})".format(v.get(),v1.get())
     cursor.execute(sql)
@@ -83,9 +83,9 @@ def submit():
 
 
 def searchfun():
-    db=m.connect(user='root',password="Dhrupesh123#",database="collage")
+    db=m.connect(user='root',password="Dhrupesh123#@",database="collage")
     cursor=db.cursor()
-    sql="select * from contect where name='{}' or number={}".format(s2.get(),s1.get())
+    sql="select * from contect where name='{}' or number={}".format(s2.get(),s1.get()) #collect data from database
     cursor.execute(sql)
     result=cursor.fetchall()
     for raw in result:
@@ -108,14 +108,14 @@ def search():
     bfind=Button(t1,text='find',command=searchfun).place(x=135,y=130)
 
 def enterfun():
-    db=m.connect(user='root',password="Dhrupesh123#",database="collage")
+    db=m.connect(user='root',password="Dhrupesh123#@",database="collage")
     cursor=db.cursor()
     if u1.get()==0:
         sql1="select * from contect where name='{}'".format(u2.get())
         cursor.execute(sql1)
         result=cursor.fetchone()
         if result is not None:
-            sql="update contect set number={} where name='{}'".format(u4.get(),u2.get())
+            sql="update contect set number={} where name='{}'".format(u4.get(),u2.get()) #update database
             cursor.execute(sql)
             db.commit()
             db.close()
